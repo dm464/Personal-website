@@ -8,7 +8,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(() => ({
     card: {
-        maxWidth: 600,
+        maxWidth: 500,
+    },
+    media: {
+        height: 0,
+        paddingTop: '56%',
     },
 }))
 
@@ -16,10 +20,11 @@ export default function ProjectCard({ title, image, desc, gitLink, link }) {
     const classes = useStyles();
     return (
         <Card className={classes.card}>
-            <CardMedia>
+            <CardMedia
                 title={title}
-                imageLink={image}
-            </CardMedia>
+                image={image}
+                className={classes.media}
+            />
             <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
                     {desc}
