@@ -6,13 +6,20 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import OpenInNewIcon from '@material-ui/icons/OpenInNew';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
     card: {
         maxWidth: 500,
+        margin: theme.spacing(2)
     },
     media: {
         height: 0,
         paddingTop: '56%',
+    },
+    link: {
+        color: theme.palette.primary.main,
+        '&:hover': {
+            color: theme.palette.primary.dark,
+        }
     },
 }))
 
@@ -32,12 +39,12 @@ export default function ProjectCard({ title, image, desc, gitLink, link }) {
             </CardContent>
             <CardActions>
                 <IconButton>
-                    <a target="_blank" href={gitLink}>
+                    <a target="_blank" rel="noreferrer" href={gitLink} className={classes.link}>
                         <GitHubIcon />
                     </a>
                 </IconButton>
                 <IconButton>
-                    <a target="_blank" href={link}>
+                    <a target="_blank" rel="noreferrer" href={link} className={classes.link}>
                         <OpenInNewIcon />
                     </a>
                 </IconButton>
